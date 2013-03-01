@@ -2,7 +2,7 @@
     <span class="content">
         <%= link_to (image_tag feed_item.user.image_url, :size => "50x50", :id=>"feedpicture"), feed_item.user %>
     <% if feed_item.is_reply_to? %>
-      <%= link_to "@#{feed_item.in_reply_to.username}", feed_item.user%>
+      <a href="users/<%=feed_item.in_reply_to.id%>"><%="@#{feed_item.in_reply_to.username}"%></a>
       <%= wrap(feed_item.content.gsub(/\A^@\w+/, "")) %>
     <% else %>
       <%= wrap(feed_item.content.gsub(/\A^@\w+/, ""))%>

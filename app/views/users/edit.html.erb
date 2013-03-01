@@ -8,6 +8,9 @@
     </br>
     <%= form_for @user, :html => {:multipart => true} do |f| %>
       <%= render 'edit_fields', :f => f %>
+      <red>Fields marked with * can't be blank</red>
+      </br>
+      </br>
       <%= f.submit "Update", :class=> "btn btn-large btn-primary" %>
     <% end %>
   </div>

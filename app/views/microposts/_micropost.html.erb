@@ -11,4 +11,8 @@
     :data=> { :confirm=> "You sure?" },
     :title=> micropost.content %>
 <% end %>
+ <span class="timestamp">
+    </br>
+      Popularity: <%= micropost.reputation_for(:votes).to_i %>
+    </span>
 </li>
