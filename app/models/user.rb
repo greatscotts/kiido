@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :username, :email, :password, :password_confirmation, :course, :school, :status, :image, :remote_image_url
   has_secure_password
 
-  default_scope :order=> :username
+  default_scope :order=> :name
   mount_uploader :image, ImageUploader
   has_many :microposts, :dependent=> :destroy
   has_many :relationships, :foreign_key=> "follower_id",

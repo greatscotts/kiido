@@ -5,7 +5,7 @@
       <%= link_to "@#{feed_item.in_reply_to.username}", feed_item.user%>
       <%= wrap(feed_item.content.gsub(/\A^@\w+/, "")) %>
     <% else %>
-      <%= wrap(feed_item.content.gsub(/\A^@\w+/, "")) %>
+      <%= wrap(feed_item.content.gsub(/\A^@\w+/, ""))%>
     <% end %>
   </span>
   <span class="timestamp">

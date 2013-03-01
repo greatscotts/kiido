@@ -41,6 +41,8 @@ gem 'jquery-rails', '2.0.2'
 # gem 'nokogiri'
 # gem 'aws-s3', :require => 'aws/s3'
 gem 'carrierwave'
+# gem 'rails_autolink'
+# gem 'rinku', '~> 1.2.2', :require => 'rails_rinku'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:

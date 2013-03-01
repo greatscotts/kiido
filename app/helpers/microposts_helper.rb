@@ -12,4 +12,8 @@ module MicropostsHelper
     (text.length < max_width) ? text :
       text.scan(regex).join(zero_width_space)
   end
+
+  def url_with_protocol(content)
+    link_to /^http/.match(content) ? content : "http://#{content}"
+  end
 end

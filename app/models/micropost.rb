@@ -5,7 +5,7 @@ class Micropost < ActiveRecord::Base
   belongs_to :in_reply_to, :class_name=> 'User', :foreign_key=> 'in_reply_to'
 
   IN_REPLY_TO_REGEX = /^@?\w+/
-
+  IS_LINK_REGEX = /^www?\w+/
   validates :content, :presence=> true, :length=> { :maximum=> 140 }
   validates :user_id, :presence=> true
   validate :in_reply_to_username_match
@@ -16,7 +16,7 @@ class Micropost < ActiveRecord::Base
   def is_reply_to?
     !in_reply_to.nil?
   end
-
+  
   private
 
   def user_cannot_reply_to_self

@@ -36,11 +36,10 @@ class UsersController < ApplicationController
   def edit
   end
 
-def edits
+  def edits
    render 'edits'
   end
 
-  
 
   def update
     if @user.update_attributes(params[:user])

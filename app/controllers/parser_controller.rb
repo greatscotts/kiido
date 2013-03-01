@@ -8,7 +8,6 @@ class ParserController < ApplicationController
     if invoker.execute
       redirect_to  :back
     else
-      @feed_items = []
       if invoker.errors.empty?
         flash.now[:error] = "Unknown error"
       else

@@ -422,7 +422,7 @@ j{
   font-size: 2em;
 }
 .navigatebar-inner {
-background: url(http://i46.tinypic.com/2i2beiu.png) repeat;
+background: url(http://i47.tinypic.com/2yxgaw3.png) repeat;
 }
 
 .blue{
@@ -544,6 +544,11 @@ yu{
 #feedpicture{  
   max-width: 50px;
   max-height: 50px;
+}
+
+#userpicture{  
+  max-width: 200px;
+  max-height: 200px;
 }
 
 #hide{
@@ -1670,4 +1675,21 @@ algnleft{
 
 h12{
   font-size: 1.5em;
+}
+
+leftaa{
+  text-align: left;
+  margin-top: 200px;
+}
+
+#boxed ul {
+  list-style-type: none;
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+#boxed ul li {
+  display: inline;
+  float: left;
 }
