@@ -13,5 +13,5 @@ applications:
     mem: 2G
     instances: 1
     services:
-      apas-mysql-79917:
+      apass-mysql-79917:
         type: mysql
