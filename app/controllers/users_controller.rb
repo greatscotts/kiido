@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(:page=> params[:page])
+    @user = User.find_by_permalink(params[:id])
+    @microposts = @user.microposts #.paginate(:page=> params[:page], :per_page => 45)
   end
 
   def new

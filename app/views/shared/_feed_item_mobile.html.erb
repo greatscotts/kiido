@@ -22,4 +22,8 @@
       :data=> { :confirm=> "You sure?" },
       :title=> feed_item.content %>
   <% end %>
+  <span class="timestamp">
+    </br>
+      Popularity: <%= feed_item.reputation_for(:votes).to_i %>
+    </span>
 </li>

@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # requset to make arbitraty users admins.
   attr_accessible :name, :username, :email, :password, :password_confirmation, :course, :school, :status, :image, :remote_image_url
   has_secure_password
-
+  before_save :create_permalink
   default_scope :order=> :name
   mount_uploader :image, ImageUploader
   has_many :microposts, :dependent=> :destroy
@@ -77,9 +77,18 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user).destroy
   end
 
+  def to_param
+     permalink
+  end
+
   private
 
     def create_remember_token
       self.remember_token = SecureRandom.base64.tr("+/", "-_")
     end
+
+  private
+     def create_permalink
+          self.permalink = username
+     end
 end
