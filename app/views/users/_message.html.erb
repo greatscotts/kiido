@@ -1,4 +1,5 @@
 <li>
+<%= link_to (image_tag feed_item.user.image_url, :size => "50x50", :id=>"feedpicture"), feed_item.user, :title=> feed_item.user.username %>
 <span class="content"><%= message.content %></span>
 <span class="timestamp">
   <% if current_user?(message.sender) %>

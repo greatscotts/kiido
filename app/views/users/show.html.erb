@@ -1,14 +1,17 @@
 <% provide(:title, @user.username) %>
 <div class="row">
-  <aside class="span4">
+  <div class="span4">
   <section>
-  <h12><h1>Hi i'm <%= @user.name %></h1></h12>
   <h1>
-    <center><%= link_to image_tag @user.image, :size => "250x250", :id=>"profilepicture", :title=> "Do i look good? Yes? Awww yeah!" %></center>
+    <center><%= link_to image_tag @user.image, :size => "300x300", :id=>"profilepicture", :title=> "Do i look good? Yes? Awww yeah!" %></center>
   </h1>
-  <algnleft>Username: <a>@<%= @user.username %></a></algnleft></br>
+</div>
+<div class="mid span10">
+<section class="btnfllow"><%= render "follow_form" if signed_in? %></section>
+<h12><%= @user.name %></h12></br>
+<h3><algnleft>Username: <a>@<%= @user.username %></a></algnleft></br>
 <algnleft>Status: <a><%= @user.status %></a></algnleft></br>
-<algnleft>Course: <a><%= @user.course %></a></algnleft>
+<algnleft>Course: <a><%= @user.course %></a></algnleft></br>
 <algnleft>School: <a><%= @user.school %></a></algnleft>
 </br>
 <% if @user.followers.count >= 0 && @user.followers.count < 200%>
@@ -23,18 +26,18 @@
 <% if @user.followers.count >= 1500 && @user.followers.count < 2000%>
 <b>Social Status: Celebrity</b>
 <%end%>
-
-  <section>
-  <%= render 'shared/stats' %>
-  </section>
-  </aside>
-  <div class="span8">
-    <%= render "follow_form" if signed_in? %>
-    <% if @user.microposts.any? %>
-      <h3><k>Wall Feed (<%= @user.microposts.count %>)</k></h3>
-      <ol class="microposts span6">
-        <%= render @microposts %>
-      </ol>
-    <% end %>
-  </div>
+</h3>
+</br>
+<section class="offset1">
+<%= render 'shared/statsBIG' %>
+</section>
+</div>
+<div class="span8 bottom">
+  <% if @user.microposts.any? %>
+    <h3><k>Wall Feed (<%= @user.microposts.count %>)</k></h3>
+    <ol class="microposts span6">
+      <%= render @microposts %>
+    </ol>
+  <% end %>
+</div>
 </div>

@@ -1,23 +1,18 @@
 <% provide(:title, @title) %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <center><%=image_tag @user.image %></center>
-    </section>
-     <center> <%= @user.name %> </center>
-  <section>
-    <%= render 'shared/stats' %>
-  </section>
-  </aside>
-  <div class="span8">
-      <h3><k><%= @title %> (<%= @messages.count %>)</k></h3>
+<div class="center">
+  <div class="span10 offset1">
+  </br>
+      <h1><%= @title %> (<%= @messages.count %>)</h1>
     <% if @messages.any? %>
       <ol class="microposts">
         <%= render :partial=> "users/message", :collection=> @messages %>
       </ol>
       <%= will_paginate @messages %>
     <% else %>
-      <k>No messages!</k>
+  </br>
+      <h1>No messages!</h1>
+    </br>
+     <h1>Learn <%= link_to "how to send a message", help_path %></h1>
     <% end %>
   </div>
 </div>

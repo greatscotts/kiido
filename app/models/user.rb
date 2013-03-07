@@ -57,8 +57,8 @@ class User < ActiveRecord::Base
   # method to search all Users by username.
   # uses method 'paginate', which applies finder options
   # (github.com/mislav/will_paginate/blob/master/lib/will_paginate/active_record.rb)
-  def self.search(username, page)
-    paginate :page=> page, :conditions=> ['username like ?', "%#{username}%"]
+  def self.search(name, page)
+    paginate :page=> page, :conditions=> ['name like ?', "%#{name}%"]
   end
 
   def feed

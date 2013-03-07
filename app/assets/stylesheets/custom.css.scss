@@ -1683,9 +1683,13 @@ algnleft{
 }
 
 h12{
-  font-size: 1.5em;
+  font-size: 3.0em;
+  font-weight: bold;
 }
 
+.hiv{
+   font-size: 1.3em;
+}
 leftaa{
   text-align: left;
   margin-top: 200px;
@@ -1705,4 +1709,19 @@ leftaa{
 
 red{
   color: red;
+}
+
+.bottom{
+position: absolute;
+  margin-top:320px;
+  margin-left: -300px;
+}
+
+.mid{
+  margin-right: -200px;
+  margin-top:20px;
+}
+.btnfllow{
+  margin-top: 0px;
+  margin-left:-350px;
 }
