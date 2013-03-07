@@ -9,7 +9,21 @@
   <algnleft>Username: <a>@<%= @user.username %></a></algnleft></br>
 <algnleft>Status: <a><%= @user.status %></a></algnleft></br>
 <algnleft>Course: <a><%= @user.course %></a></algnleft>
-  </section>
+<algnleft>School: <a><%= @user.school %></a></algnleft>
+</br>
+<% if @user.followers.count >= 0 && @user.followers.count < 200%>
+<b>Social Status: Kiido</b>
+<%end%>
+<% if @user.followers.count >= 200 && @user.followers.count < 700%>
+<b>Social Status: Rising Star</b>
+<%end%>
+<% if @user.followers.count >= 700 && @user.followers.count < 1500%>
+<b>Social Status: Sensational</b>
+<%end%>
+<% if @user.followers.count >= 1500 && @user.followers.count < 2000%>
+<b>Social Status: Celebrity</b>
+<%end%>
+
   <section>
   <%= render 'shared/stats' %>
   </section>

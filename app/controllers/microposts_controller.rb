@@ -38,11 +38,10 @@ class MicropostsController < ApplicationController
     Micropost.find(params[:id]).destroy
     redirect_to root_path
   end
+
   private
   def correct_user
     @micropost = current_user.microposts.find_by_id(params[:id])
     redirect_to root_path if @micropost.nil?
   end
-end
-
 end
