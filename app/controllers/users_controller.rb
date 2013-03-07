@@ -51,35 +51,35 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    User.find_by_permalink(params[:id]).destroy
     flash[:success] = "User destroyed."
     redirect_to users_path
   end
 
   def following
     @title = "Following"
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     @users = @user.followed_users.paginate(:page=> params[:page])
     render 'show_follow'
   end
 
   def admirers
     @title = "Admirers"
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     @users = @user.followers.paginate(:page=> params[:page])
     render 'show_follow'
   end
 
   def messages_to
     @title = "Received Messages"
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     @messages = @user.received_messages.paginate(:page=> params[:page])
     render 'show_messages'
   end
 
   def messages_from
     @title = "Sent Messages"
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     @messages = @user.sent_messages.paginate(:page=> params[:page])
     render 'show_messages'
   end
@@ -97,12 +97,12 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     redirect_to(root_path) unless current_user?(@user)
   end
 
   def admin_cannot_delete_self
-    @user = User.find(params[:id])
+    @user = User.find_by_permalink(params[:id])
     if @user.admin? and current_user?(@user)
       redirect_to users_path, :notice=> "Admin user cannot delete self!"
     end
