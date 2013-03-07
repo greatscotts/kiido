@@ -1,4 +1,4 @@
-<% provide(:title, "Admiring") %>
+<% provide(:title, @title) %>
 <div class="row">
   <aside class="span4">
     <center>
@@ -14,7 +14,7 @@
   </aside>
   <center class="middle">
   <div class="span7">
-    <h3>Admiring</h3>
+    <h1><%= @title %></h1>
     <% if @users.any? %>
       <ul class="users">
         <%= render @users %>

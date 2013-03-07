@@ -12,20 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20130306190457) do
 
-  create_table "comments", :force => true do |t|
-    t.string   "title",            :limit => 50, :default => ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
-  end
-
-  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
-  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
-
   create_table "messages", :force => true do |t|
     t.integer  "from_user_id"
     t.integer  "to_user_id"
@@ -40,10 +26,12 @@ ActiveRecord::Schema.define(:version => 20130306190457) do
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "in_reply_to"
   end
+
+  add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
 
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
@@ -106,14 +94,18 @@ ActiveRecord::Schema.define(:version => 20130306190457) do
     t.string   "course"
     t.string   "school"
     t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.boolean  "admin"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "admin",           :default => false
     t.string   "password_digest"
     t.string   "remember_token"
     t.string   "username"
     t.string   "image"
     t.string   "permalink"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

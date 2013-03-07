@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = "Admiring"
     @user = User.find_by_permalink(params[:id])
     @users = @user.followed_users.paginate(:page=> params[:page])
     render 'show_follow'
@@ -71,14 +71,14 @@ class UsersController < ApplicationController
   end
 
   def messages_to
-    @title = "Received Messages"
+    @title = "Inbox"
     @user = User.find_by_permalink(params[:id])
     @messages = @user.received_messages.paginate(:page=> params[:page])
     render 'show_messages'
   end
 
   def messages_from
-    @title = "Sent Messages"
+    @title = "Outbox"
     @user = User.find_by_permalink(params[:id])
     @messages = @user.sent_messages.paginate(:page=> params[:page])
     render 'show_messages'
